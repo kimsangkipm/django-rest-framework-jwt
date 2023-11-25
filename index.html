@@ -1,0 +1,1550 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="mzkAy71X1qQFWihQN535LoiToXg34MUg9nuor7Og9E8" />
+    <meta name="naver-site-verification" content="d7c116bce998e6961b8db93c8592550f1a82119f"/>
+    <meta name="description" content="온라인 책을 제작 공유하는 플랫폼 서비스">
+
+    
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="위키독스">
+<meta property="og:title" content="02-1 HTML 기본 문법 : 태그">
+<meta property="og:description" content="##태그의 기본 사용법 HTML은 웹 페이지에 콘텐츠를 표시하기 위해 사용하는 언어입니다. 어느 부분에 텍스트가 있어야 할지, 어느 부분에 이미지가 있어야 할지 등을 나타내는 것…">
+<meta property="og:image" content="https://wikidocs.net/images/book/html5_cover.png">
+<meta property="og:url" content="https://wikidocs.net/160445">
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
+    <link rel="canonical" href="https://wikidocs.net/book/1">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <title>02-1 HTML 기본 문법 : 태그 - 입문자를 위한 HTML5</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+<style>
+a.wiki_link {
+    color: #8B0000;
+    text-decoration: none;
+}
+a.wiki_link:hover {
+    text-decoration: underline;
+}
+.popover{
+    max-width: 500px; /* Max Width of the popover (depending on the container!) */
+}
+</style>
+
+    <link type="text/css" href="/static/book/css/style_stack.css?v=5" rel="stylesheet"  media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/static/book/js/utils.js"></script>
+    <script type="text/javascript" src="/static/book/js/base.js?v=20230516_01"></script>
+    <script type="text/javascript">
+    function recommend_book(book_id) {
+        var msg = [];
+        msg.push('<div class="alert alert-info">');
+        msg.push('<p><strong>책을 추천합니다.</strong></p>');
+        msg.push('정말로 추천하시겠습니까?</p>');
+        msg.push('</div>');
+        msg.push('<span class="muted">※ 추천취소는 불가능합니다.</span>');
+
+        apprise(msg.join(''), {'verify':true}, function(r) {
+            if(r) {
+                location.href = "/book/recommend/"+book_id;
+            }
+        });
+        return;
+    }
+    </script>
+    
+    
+
+
+<link type="text/css" href="/static/apprise/apprise.min.css" rel="stylesheet"  />
+<link type="text/css" href="/static/book/css/markdown_stack.css?v=4" rel="stylesheet" />
+<link type="text/css" href="/static/treeview/bootstrap-treeview.min.css" rel="stylesheet" />
+<link type="text/css" href="/static/book/css/copycode.css" rel="stylesheet" />
+
+<!--  -->
+
+<style>
+.wp-content p {
+    margin: 5px 0;
+}
+a.wiki_title {
+    color: #8B0000;
+    text-decoration: none;
+    font-size: 16px;
+}
+a.inner_link {
+    color: #8B0000;
+    text-decoration: none;
+}
+a.wiki_title:hover, a.inner_link:hover {
+    text-decoration: underline;
+}
+#search-results {
+    width: 100%;
+    cursor: pointer;
+    padding:0;
+    margin:0;
+    background-color: #f2f2f2;
+    border-top:none;
+    border-radius: 0; /* 모서리의 radius를 0으로 설정 */
+    font-weight:bold;
+}
+#search-results li {
+    margin: 0;
+    padding: 5px 30px;
+}
+.result-item {
+    white-space: normal;
+    padding: 0 15px;
+    color:#000;
+}
+
+.dropdown-menu .active {
+    background-color: #000;
+    outline: none;
+    color:#fff;
+}
+</style>
+
+<script type="text/javascript" src="/static/apprise/apprise-1.5.min.js"></script>
+<script type="text/javascript" src="/static/scroll/jquery.nicescroll.js"></script>
+<!-- <script type="text/javascript" src="/static/book/js/page.js?v=20210601_01"></script> -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+<!-- 수식입력 mathjax -->
+<script>
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+  loader: {load: ['[tex]/physics', '[tex]/braket']},
+  tex: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    packages: {'[+]': ['physics', 'braket']}
+  }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- 수식입력 mathjax -->
+
+<script>
+$(document).ready(function () {
+//    $("pre").addClass("prettyprint");
+//    prettyPrint();
+
+    $("#show_toc_btn").click(function () {
+        $(".toc").removeClass("hide");
+        $(".toc").show();
+        $("#show_toc_btn").hide();
+    });
+
+    $("#feedback_btn").click(function () {
+
+        var page_id = $("#page_id").val();
+        var email = $("#email").val();
+        var feedback = $("#feedback").val();
+
+        if (!email) {
+            apprise('답장받을 이메일을 입력하세요.', {}, function () {
+                $("#email").focus();
+            });
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            apprise('이메일을 정확하게 입력 해 주세요.', {}, function () {
+                $("#email").focus();
+            });
+            return;
+        }
+
+        if (!feedback) {
+            apprise('피드백을 입력하세요.', {}, function () {
+                $("#feedback").focus();
+            });
+            return;
+        }
+
+        $.post("/feedback", {
+            "page_id": page_id,
+            "email": email,
+            "feedback": feedback
+        }, function (data) {
+            apprise('피드백을 남겨주셔서 감사합니다.', {}, function () {
+                $('#myModal').modal('hide');
+            });
+        }, "html");
+
+    });
+
+    $("#report_btn").click(function () {
+        var comment_id = $("#comment_id").val();
+        var report = $("#report").val();
+
+        if (!report) {
+            apprise('신고사유를 입력하세요.', {}, function () {
+                $("#report").focus();
+            });
+            return;
+        }
+
+        $.post("/page/comment/report", {
+            "comment_id": comment_id,
+            "report": report
+        }, function (result) {
+            if(result.success) {
+                apprise('신고가 접수되었습니다. 검토까지는 최대 24시간 소요됩니다.', {}, function () {
+                    $('#reportModal').modal('hide');
+                });
+            }else {
+                $('#reportModal').modal('hide');
+                alert(result.message);
+            }
+            
+        }, "json");
+
+    });
+
+    $("body").on('click', "#comment_btn", function () {
+        var content = $("#content").val();
+        if (!content) {
+            apprise('댓글을 입력해 주세요', {verify: false}, function (r) {
+                $("#content").focus();
+            });
+            return false;
+        }
+
+        $.post("/page/comment/save", {
+            "page_id": $("#page_id").val(),
+            "content": content
+        }, function (result) {
+            if (result.success) {
+                get_page_comments(result.page_id);
+            }else {
+                alert(result.message);
+            }
+        }, "json");
+    });
+
+    $('a[href="#top"]').click(function () {
+        $('html,body').animate({ scrollTop: $("body").offset().top},
+            {duration: 'normal', easing: 'swing'});
+        return false;
+    });
+
+    var hash = window.location.hash;
+    if(hash.indexOf("#comment") != -1) {
+        show_comments();
+    }
+
+    // 외부 링크는 새창으로 열도록 수정.
+    $('a').each(function() {
+        var a = new RegExp('/' + window.location.host + '/');
+        try {
+            if(this.href && !a.test(this.href) && this.href.indexOf('wikidocs.net') === -1 && this.href.startsWith('http')) {
+                $(this).click(function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    window.open(this.href, '_blank');
+                });
+            }
+        }catch(e) {
+        }
+    });
+
+    // popover
+    var is_mobile = "False";
+    let _trigger = 'click';  // focus(다른 곳 클릭시 팝업 닫힘), click 
+    let _hide = 0;  // focus일 때는 200이 적당
+    if (is_mobile == "True") {
+        _trigger = 'click';
+        _hide = 0;
+    }
+    
+    $('.wiki_link').on('click', function(event) {
+        var el = $(this);
+        
+        // disable this event after first binding 
+        el.off(event);
+
+        let _title = el.data('title');
+        _title = "<a class='wiki_title' href='/wiki/"+_title+"' target='_wiki'>" +_title + "</a>"+
+                '<button style="margin-left:10px;" type="button" id="close" class="close">&times;</button>';
+        
+        // add initial popovers with LOADING text
+        el.popover({
+            title: _title,
+            content: "loading...", // maybe some loading animation like <img src='loading.gif />
+            html: true,
+            placement: "bottom",
+            container: 'body',
+            trigger: _trigger,
+            delay: {"show": 0, "hide": _hide}
+        }).on('shown.bs.popover', function (eventShown) {
+            var $popup = $('#' + $(eventShown.target).attr('aria-describedby'));
+            $popup.find('button.close, a.wiki_title, a.inner_link').click(function (e) {
+                el.trigger('click');
+            });
+        });
+
+        // show this LOADING popover
+        // el.popover('show');
+
+        // requesting data from unsing url from data-poload attribute
+        $.get(el.data('wiki'), function (d) {
+            let $tempDiv = $('<div>').html(d);
+            $tempDiv.find('a').attr('target', '_blank');
+            d = $tempDiv.html();
+
+            // set new content to popover
+            el.data('bs.popover').options.content = d;
+
+            // reshow popover with new content
+            // el.popover('show');
+            el.trigger('click');
+        });
+    });
+});
+
+$(window).load(function () {
+    if (!TOC_HEIGHT) {
+//        init_toc();
+    }
+
+    resizeMenu();
+});
+
+function resizeMenu() {
+    var wh = $(window).height() - 220;
+    var ph = get_height(".page");
+    var h = Math.max(wh, ph);
+    $(".scrollable-menu").css("max-height", h+"px");
+}
+
+function touch_toc() {
+    if ($(".page img").length == 0) {
+        init_toc();
+    }
+}
+
+var TOC_HEIGHT;
+function init_toc() {
+    var selected_toc_li_top = $(".selected_toc_li").offset().top;
+    var page_height = get_height(".page");
+    var toc_height = get_height(".toc-area");
+    TOC_HEIGHT = toc_height;
+
+//    console.log("page_height:"+page_height);
+
+    if (toc_height >= 480) {
+        if (page_height - 145 <= 480) {
+            $(".toc-area").css("height", (page_height - 145) + "px");
+            $(".toc-open").show();
+            $(".toc-area").niceScroll({"cursorcolor": "#888"});
+            $(".toc-area").scrollTop(selected_toc_li_top - 200);
+        } else if (toc_height > 480) {
+            $(".toc-area").css("height", "480px");
+            $(".toc-open").show();
+            $(".toc-area").niceScroll({"cursorcolor": "#888"});
+            $(".toc-area").scrollTop(selected_toc_li_top - 200);
+        }
+    }
+
+    if (page_height > 480 + 300) {
+        $(".toc-ads").show();
+    }
+}
+function open_toc() {
+    $(".toc-area").css("overflow-y", "visible");
+    $(".toc-area").css("height", TOC_HEIGHT + "px");
+    $(".toc-open").hide();
+}
+function get_height(element) {
+    var _height = $(element).css("height");
+    return parseInt(_height.split("px")[0]);
+}
+
+function remove_comment(comment_id) {
+    apprise('정말로 삭제하시겠습니까?', {verify: true}, function (r) {
+        if (r) {
+            $.post("/page/comment/remove", {
+                "comment_id": comment_id
+            }, function (result) {
+                if (result.success) {
+                    get_page_comments(result.page_id);
+                }else {
+                    alert(result.message);
+                }
+                // $(".comments").html(data);
+            }, "json");
+        }
+    });
+}
+
+function reply_comment(comment_name) {
+    $(".user_comments #content").val("@"+comment_name+"님 ");
+    $(".user_comments #content").focus();
+}
+
+function show_comments() {
+    $(".user_comments").toggle();
+}
+
+function show_book_comments() {
+    $(".pages").css("display", "none");
+    $(".comments").toggle();
+}
+
+function show_book_pages() {
+    $(".comments").css("display", "none");
+    $(".pages").toggle();
+
+}
+
+function get_all_page_comments(page_id) {
+    $.ajax({
+        type: "POST",
+        url: "/page/comment/all",
+        data: {'page_id': page_id},
+        dataType: "html",
+        success: function(data) {
+            $("#page_all_comments").html(data);
+        }
+    });
+}  
+
+function get_page_comments(page_id) {
+    $.ajax({
+        type: "POST",
+        url: "/page/comment/get",
+        data: {'page_id': page_id},
+        dataType: "html",
+        success: function(data) {
+            $(".comments").html(data);
+            $("#content").val("");
+        }
+    });
+}
+
+function report_modal(comment_id) {
+    // console.log(comment_id);
+    $("#comment_id").val(comment_id);
+    $('#reportModal').modal('show')
+}
+</script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-2686629-3']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6N5MJRGLWG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6N5MJRGLWG');
+    </script>
+</head>
+<body>
+
+
+    <!-- PC -->
+
+    
+        <!-- 위키독스 수익 광고 1/10 -->
+        <!-- 오른쪽 플로팅 고정광고 시작-->
+        <aside id="asideRight" class="asideRight">
+    <div id="chaseRight" style="top:20px;">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9470517771012578"
+            crossorigin="anonymous"></script>
+        <!-- wikidocs_sidebar -->
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:200px;height:500px"
+            data-ad-client="ca-pub-9470517771012578"
+            data-ad-slot="7263258217"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</aside>
+        
+        
+        <!-- 오른쪽 플로팅 고정광고 끝 -->
+    
+
+
+
+
+
+
+
+
+<div class="container" style="padding-bottom:50px;">
+
+<div class="content row tex2jax_ignore" style="margin-top:0px;">
+    <div class="col-sm-3">
+        
+<div class="row">
+    <div class="col-sm-3 sidebar" style="padding:0;margin:0;overflow-x: hidden;">
+        
+
+        <div class="toc toc-checker">
+            <div class="row">
+                <div class="col-xs-12" style="padding:0;">
+                    <div class="row clearfix" style="margin:0;padding:0;border-bottom:solid 1px #ccc;">
+                        <div class="pull-left" style="width:75%;">
+                            <input type="text" style="margin-left:15px;" id="kw" name="kw" class="input-search" placeholder="검색어를 입력하세요." autocomplete="off">
+                            <ul id="search-results" class="dropdown-menu" aria-labelledby="kw"></ul>
+                        </div>
+                        <div class="pull-right">
+                            
+                            <button class="btn btn-xs btn-default find-btn" style="margin-top:12px;">
+                                <i class="glyphicon glyphicon-search" title="찾기"></i>
+                            </button>
+                            <button class="btn btn-xs btn-default menu_link menu-toggle" style="margin-right:20px;margin-top:12px;">
+                                <i class="glyphicon glyphicon-menu-hamburger" title="메뉴"></i>
+                            </button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group list-group-toc" style="margin:0;">
+                <a class="list-group-item " href="/book/7596" style="margin:0;">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;" title="입문자를 위한 HTML5">
+                        
+                            <i class="glyphicon glyphicon-book"></i>
+                        
+                        <strong>입문자를 위한 HTML5</strong>
+                    </span>
+                </a>
+
+                
+                <a href="javascript:page(159945)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="00장 들어가며">
+                        <span style="padding-left:0px">
+                        
+                        00장 들어가며
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(159952)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="00-1 책 소개">
+                        <span style="padding-left:20px">
+                        
+                        00-1 책 소개
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(159953)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="00-2 저자 소개">
+                        <span style="padding-left:20px">
+                        
+                        00-2 저자 소개
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(159954)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="01장 웹 개발 그리고 HTML">
+                        <span style="padding-left:0px">
+                        
+                        01장 웹 개발 그리고 HTML
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(159960)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="01-1 웹 개발 이해하기">
+                        <span style="padding-left:20px">
+                        
+                        01-1 웹 개발 이해하기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(159965)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="01-2 웹 사이트 이해하기">
+                        <span style="padding-left:20px">
+                        
+                        01-2 웹 사이트 이해하기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(160037)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="01-3 HTML을 소개합니다">
+                        <span style="padding-left:20px">
+                        
+                        01-3 HTML을 소개합니다
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(160107)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="01-4 웹 브라우저와 코드 에디터">
+                        <span style="padding-left:20px">
+                        
+                        01-4 웹 브라우저와 코드 에디터
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(160276)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="01-5 코드 에디터 사용 방법">
+                        <span style="padding-left:20px">
+                        
+                        01-5 코드 에디터 사용 방법
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(160361)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02장 HTML 시작하기">
+                        <span style="padding-left:0px">
+                        
+                        02장 HTML 시작하기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(160445)" class="list-group-item active">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02-1 HTML 기본 문법 : 태그">
+                        <span style="padding-left:20px">
+                        
+                        02-1 HTML 기본 문법 : 태그
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(160880)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02-2 HTML 기본 문법 : 속성과 주석">
+                        <span style="padding-left:20px">
+                        
+                        02-2 HTML 기본 문법 : 속성과 주석
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(160892)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02-3 HTML 문서 기본 구조">
+                        <span style="padding-left:20px">
+                        
+                        02-3 HTML 문서 기본 구조
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(161018)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="03장 텍스트 표시하기">
+                        <span style="padding-left:0px">
+                        
+                        03장 텍스트 표시하기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(161021)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="03-1 제목과 문단">
+                        <span style="padding-left:20px">
+                        
+                        03-1 제목과 문단
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(161068)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="03-2 HTML 코드의 특징">
+                        <span style="padding-left:20px">
+                        
+                        03-2 HTML 코드의 특징
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(161161)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="03-3 태그의 유형과 인라인 텍스트">
+                        <span style="padding-left:20px">
+                        
+                        03-3 태그의 유형과 인라인 텍스트
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(161419)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="03-4 컨테이너와 전역속성">
+                        <span style="padding-left:20px">
+                        
+                        03-4 컨테이너와 전역속성
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(163734)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="04장 이미지와 링크">
+                        <span style="padding-left:0px">
+                        
+                        04장 이미지와 링크
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(163736)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="04-1 이미지 태그">
+                        <span style="padding-left:20px">
+                        
+                        04-1 이미지 태그
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(163766)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="04-2 이미지를 표시하는 새로운 방법">
+                        <span style="padding-left:20px">
+                        
+                        04-2 이미지를 표시하는 새로운 방법
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(163913)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="04-3 링크 만들기">
+                        <span style="padding-left:20px">
+                        
+                        04-3 링크 만들기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(163946)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="05장 목록과 표">
+                        <span style="padding-left:0px">
+                        
+                        05장 목록과 표
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(163978)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="05-1 목록 만들기">
+                        <span style="padding-left:20px">
+                        
+                        05-1 목록 만들기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(163980)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="05-2 표 만들기">
+                        <span style="padding-left:20px">
+                        
+                        05-2 표 만들기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(164300)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="06장 입력 폼 만들기">
+                        <span style="padding-left:0px">
+                        
+                        06장 입력 폼 만들기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(164305)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="06-1 입력 태그">
+                        <span style="padding-left:20px">
+                        
+                        06-1 입력 태그
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(164328)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="06-2 입력 요소를 만드는 또 다른 태그들">
+                        <span style="padding-left:20px">
+                        
+                        06-2 입력 요소를 만드는 또 다른 태그들
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(164428)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="06-3 입력 폼 만들기 ">
+                        <span style="padding-left:20px">
+                        
+                        06-3 입력 폼 만들기 
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(164481)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="07장 미디어 다루기">
+                        <span style="padding-left:0px">
+                        
+                        07장 미디어 다루기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(164511)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="07-1 오디오와 비디오 ">
+                        <span style="padding-left:20px">
+                        
+                        07-1 오디오와 비디오 
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(164522)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="07-2 외부 파일 및 문서 삽입">
+                        <span style="padding-left:20px">
+                        
+                        07-2 외부 파일 및 문서 삽입
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(164659)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="08장 서비스 품질 향상시키기 ">
+                        <span style="padding-left:0px">
+                        
+                        08장 서비스 품질 향상시키기 
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(164661)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="08-1 의미론적인 태그">
+                        <span style="padding-left:20px">
+                        
+                        08-1 의미론적인 태그
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(164662)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="08-2 메타데이터">
+                        <span style="padding-left:20px">
+                        
+                        08-2 메타데이터
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(164788)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="09장 마치며">
+                        <span style="padding-left:0px">
+                        
+                        09장 마치며
+                        </span>
+                    </span>
+                </a>
+                
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="small" style="border-top:solid 1px #ccc;padding:15px 15px 30px 15px;font-family:consolas;">
+                <a href="/" style="padding-left:15px;color:#333;">Published with WikiDocs</a>
+            </div>
+        </div>
+        
+        <input type="hidden" name="request_mobile" id="request_mobile" value="0" />
+    </div>
+</div>
+
+<script>
+function myTrim(x) {
+    return x.replace(/^\s+|\s+$/gm,'');
+}
+
+function search_json() {
+    var kw = myTrim($("#kw").val());
+    if(!kw) {
+        return;
+    }
+
+    location.href = "/book/search/result/7596?keyword="+kw;
+}
+
+$(document).ready(function () {
+    $(".book-search").on("click", function() {
+        $("#search_form").submit();
+    });
+
+    $("#mobile_search_btn").on("click", function() {
+        search_json();
+    });
+
+    $(".home").on("click", function() {
+        location.href = "/";
+    });
+
+    if (typeof(Storage) !== "undefined") {
+        if(localStorage.sidebar == "hidden") {
+            menuToggle();
+        }else {
+            $(".sidebar").show();
+            $(".toc-header").show();
+        }
+    }else {
+        $(".sidebar").show();
+        $(".toc-header").show();
+    }
+
+    $(".toc").css("display", "block");
+    if (typeof(Storage) !== "undefined") {
+        $(".sidebar").scrollTop(localStorage.sp);
+    }
+
+    $(".sidebar").css("overflow-y", "auto");
+
+    $(".toc_item").on("click", function() {
+        var page_id = $(this).attr("page_id");
+        // $(".selected_toc").removeClass("selected_toc");
+        // $(this).addClass("selected_toc");
+        page(page_id);
+
+    });
+
+    $(".menu-toggle").on("click", function() {
+        menuToggle();
+
+        if (typeof(Storage) !== "undefined") {
+            if(localStorage.sidebar == "hidden") {
+                localStorage.sidebar = "show";
+            }else {
+                localStorage.sidebar = "hidden";
+            }
+        }
+    });
+
+    
+
+    $("#load_content").show();
+});
+
+
+function menuToggle(no_sidebar) {
+    if(!no_sidebar) {
+        $(".sidebar").toggle();
+        $(".toc-header").toggle();
+    }
+    $("#load_content").toggleClass("col-sm-offset-3");
+    $("#load_content").toggleClass("col-sm-9");
+    $("#load_content").toggleClass("col-sm-12");
+    $("#load_content").toggleClass("sidebar-padding");
+    $(".prev_next_indicator").toggle();
+    $(".menu-group").toggle();
+}
+
+function page(no) {
+    var scrollpos = $(".sidebar").scrollTop();
+    if (typeof(Storage) !== "undefined") {
+        localStorage.sp = scrollpos;
+    }
+
+    location.href = "/"+no;
+    return false;
+
+    $(".selected_toc").removeClass("selected_toc");
+    $(".toc_item").each(function() {
+        var page_id = $(this).attr("page_id");
+        if(page_id == no) {
+            $(this).addClass("selected_toc");
+        }
+    });
+
+    var url = "/load/"+no;
+    $("#load_content").load(url, function(responseTxt, statusTxt, xhr){
+        if(statusTxt == "success") {
+            // alert("External content loaded successfully!");
+            $("#load_content").scrollTop(0);
+            window.history.pushState("object or string", "02-1 HTML 기본 문법 : 태그", "/"+no);
+        }
+        if(statusTxt == "error") {
+            alert("Error: " + xhr.status + ": " + xhr.statusText);
+        }
+    });
+
+}
+
+
+/* search keyword */
+$(document).ready(function() {
+    const $searchInput = $('#kw');
+    const $searchResults = $('#search-results');
+
+    const ajax_search = function(event) {
+        var query = $searchInput.val().trim();
+        if (query.length >= 1) {  // 예시로 2글자 이상 입력될 때 검색을 시작합니다.
+            $.ajax({
+                url: '/book/search.json/',  // 검색 요청을 처리할 서버의 URL
+                data: {
+                    'kw': query,
+                    'book_id': '7596',
+                },
+                dataType: 'json',
+                success: function(data) {
+                    $searchResults.empty();
+                    if (data.results.length > 0) {
+                        data.results.forEach(function(item) {
+                            $searchResults.append('<li class="dropdown-item result-item" data-url="/'+item.id+'">' + item.subject + '</li>');
+                        });
+                        $searchResults.show();
+                    } else {
+                        $searchResults.hide();
+                    }
+                }
+            });
+        } else {
+            $searchResults.empty().hide();
+        }
+    }
+
+    $searchInput.on('keydown', function(event) {
+        if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            const $results = $searchResults.find('li');
+            if ($results.length > 0) {
+                $results.first().addClass('active').attr('tabindex', -1).focus();
+            }
+        }else if(event.key == 'Escape') {
+            $searchResults.empty().hide();
+            $searchInput.val('');
+            $searchInput.attr('tabindex', -1).focus();
+        }
+    });
+
+    $searchInput.on('keyup', function(event) {
+        if (event.key === 'Enter') {
+            let val = $(this).val();
+            if (val.length >= 1) {
+                window.location.href = "/book/search/result/7596?find_kw="+val+"&exact_match=1&page=1";
+            }
+        }else if(event.key == 'Escape') {
+            $searchResults.empty().hide();
+            $searchInput.val('');
+            $searchInput.attr('tabindex', -1).focus();
+        }else if (!event.key.startsWith('Arrow')) {
+            ajax_search(event);
+        }
+    });
+
+    $searchResults.on('keydown', 'li', function(event) {
+        const $results = $searchResults.find('li');
+        const currentIndex = $results.index(this);
+        if (event.key === 'ArrowDown') {
+            
+            event.preventDefault();
+            const nextIndex = (currentIndex + 1) % $results.length;
+            
+            $results.removeClass('active');
+            $results.eq(nextIndex).addClass('active').attr('tabindex', -1).focus();            
+        } else if (event.key === 'ArrowUp') {
+            event.preventDefault();
+            $results.removeClass('active');
+            if(currentIndex == 0) {
+                $searchInput.attr('tabindex', -1).focus();
+            }else {
+                const prevIndex = (currentIndex - 1 + $results.length) % $results.length;
+                $results.eq(prevIndex).addClass('active').attr('tabindex', -1).focus();
+            }
+        }else if(event.key == 'Enter') {
+            window.location.href = $(this).data('url');
+        }else if(event.key == 'Escape') {
+            $searchResults.empty().hide();
+            $searchInput.val('');
+            $searchInput.attr('tabindex', -1).focus();
+        }
+    });
+
+    $(document).on('click', function(event) {
+        if(event.target !== $searchResults[0]) {
+            $searchResults.empty().hide();
+        }
+    });
+
+    $(document).on('click', ".result-item", function(event) {
+        window.location.href = $(this).data('url');
+    });
+
+    $(".find-btn").on('click', function(event) {
+        let val = $searchInput.val();
+        // if (val.length >= 1) {
+            window.location.href = "/book/search/result/7596?find_kw="+val+"&exact_match=1&page=1";
+        // }
+    })
+});
+
+
+</script>
+
+
+
+    </div>
+
+    
+    <div class="page col-sm-offset-3 col-sm-9" id="load_content" style="display:none;margin-top:0px;">
+        <!-- <div style="margin: 50px 0; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9;">
+    <div style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">[중요] 서버 점검 공지</div>
+    <div style="font-size: 16px; line-height: 1.6;">
+        <p>안녕하세요, 고객 여러분,</p>
+        <p>저희는 시스템의 안정성을 향상시키기 위해 예정된 서버 점검을 진행하게 되었습니다. 이로 인해 일시적으로 서비스 이용에 불편을 드릴 수 있음을 알려드립니다.</p>
+        <p><strong>- 점검 일시: 2023년 6월 17일 (토요일), 23시부터 24시까지 (1시간 동안)</strong></p>
+        <p>점검 동안에는 모든 서비스가 일시적으로 중단됩니다. 점검이 완료된 후에는 정상적으로 서비스를 이용하실 수 있습니다.</p>
+        <p>점검 시간 동안에는 서비스 이용이 불가능하오니, 이 점 참고하시어 불편함이 없으시길 바랍니다.</p>
+        <p>저희는 고객 여러분께 더 나은 서비스를 제공하기 위해 노력하고 있습니다. 이해와 협조에 감사드립니다.</p>
+        <p>감사합니다.</p>
+    </div>
+</div>
+ -->
+        
+
+
+
+
+
+
+
+
+<div class="btn-group pull-right menu-group" role="group">
+    <button class="btn btn-xs btn-default menu_link menu-toggle">
+        <i class="glyphicon glyphicon-menu-hamburger" title="메뉴"></i>
+    </button>
+</div>
+<div class="menu-wikidocs">
+</div>
+
+
+
+
+<div class="clearfix page-depth">
+    <ol class="breadcrumb pull-left">
+        <li><small><a href="/book/7596"><i class="glyphicon glyphicon-book"></i> <strong>입문자를 위한 HTML5</strong></a></small></li>
+        
+        <li><small><a href="/160361">02장 HTML 시작하기</a></small></li>
+        
+        <li><small><a href="/160445">02-1 HTML 기본 문법 : 태그</a></small></li>
+        
+    </ol>
+    
+    <ol class="breadcrumb pull-right">
+        
+<li>
+    <a href="/220296" class="btn btn-xs btn-danger" style="color:#fff"><i class="glyphicon glyphicon-gift"></i> 도서 증정 이벤트 !!</a>
+</li>
+
+
+        
+        <li>
+            <a href="/"><small class="logo"><i class="glyphicon glyphicon-home"></i> 위키독스</small></a>
+        </li>
+    </ol>
+    
+</div>
+
+
+<h1 class="page-subject">
+    02-1 HTML 기본 문법 : 태그
+    
+        
+    
+</h1>
+
+<div class="page-content tex2jax_process">
+    <h2 id="_1">태그의 기본 사용법</h2>
+<p>HTML은 웹 페이지에 콘텐츠를 표시하기 위해 사용하는 언어입니다. 어느 부분에 텍스트가 있어야 할지, 어느 부분에 이미지가 있어야 할지 등을 나타내는 것이 HTML의 역할입니다. 이러한 역할을 수행하기 위해 HTML은 '태그(tag)'라는 표기법을 사용합니다. 다음은 태그를 이용해 콘텐츠를 표시할 때의 기본적인 형태를 나타낸 것인데, 이를 통해 태그를 구성하는 각 요소의 역할을 살펴보겠습니다.    </p>
+<pre><code class="language-html">&lt;태그의이름&gt;콘텐츠&lt;/태그의이름&gt;  
+</code></pre>
+<h3 id="_2">부등호(&lt;&gt;)</h3>
+<p>위 형태에서, &lt; 기호와 &gt; 기호로 묶인 부분이 바로 태그입니다. 태그는 여는 태그와 닫는 태그로 구분할 수 있는데, 여는 태그는 콘텐츠의 시작을 나타내고 닫는 태그는 콘텐츠의 끝을 나타냅니다. 여는 태그와 닫는 태그가 짝을 이루기 위해서는 태그의 이름이 같아야 하며, 닫는 태그에는 &lt; 기호 바로 뒤에 / 기호를 붙여 여는 태그와 구별해야 합니다.   </p>
+<h3 id="_3">태그의 이름</h3>
+<p>태그의 이름은 해당 태그가 웹페이지에 어떤 콘텐츠를 표시하는지를 의미합니다. 예를 들어 텍스트 문단을 표시할 때는 'paragraph'의 약자인 'p'를 태그의 이름으로 사용하고, 이미지를 표시할 때는 'image'의 약자인 'img'를 태그의 이름으로 사용합니다.</p>
+<h3 id="_4">콘텐츠</h3>
+<p>여는 태그와 닫는 태그 사이에는 태그가 실제로 표시할 콘텐츠가 작성되어야 합니다. 태그를 위해 사용된 기호와 태그의 이름은 실제 웹페이지에는 표시되지 않습니다. 웹 브라우저는 여는 태그와 닫는 태그 사이에 작성된 콘텐츠를 태그의 이름에 맞게 해석한 후 화면에 표시합니다. 아래는 텍스트 문단을 표시하기 위해 작성된 태그의 예와 이를 웹 브라우저 화면에서 확인한 결과입니다. </p>
+<pre><code class="language-html">&lt;p&gt;p 태그는 텍스트 문단을 표시할 때 사용합니다.&lt;/p&gt;
+</code></pre>
+<p><img alt="" src="https://wikidocs.net/images/page/160445/02-1-2.PNG" />  </p>
+<h2 id="_5">단일 태그</h2>
+<p>앞서 살펴 본 형태 외에, 태그는 닫는 태그를 생략한 '단일 태그' 형태로도 사용할 수 있습니다. 여는 태그와 닫는 태그를 짝 지어 사용하는 것은 그 사이에 콘텐츠를 표시하기 위함입니다. 단일 태그는 콘텐츠를 표시하지 않습니다. 단일 태그는 태그 그 자체만으로도 콘텐츠가 되거나, 태그가 문서 내에서 별도의 기능을 수행하는 경우에 사용하는 형태입니다. 단일 태그는 다음의 두 가지 형태로 작성할 수 있습니다. </p>
+<pre><code class="language-html">&lt;태그의이름&gt;
+</code></pre>
+<pre><code class="language-html">&lt;태그의이름/&gt;
+</code></pre>
+<p>단일 태그 사용 시에는 위 두 가지 형태 중 어떤 형태로도 작성 가능합니다. 두 번째 형태에서 사용된 / 기호는 태그가 닫혔다(끝났다)는 의미로 사용하는 것입니다. HTML의 이전 버전 중에는 단일 태그에 이 기호를 반드시 포함시키도록 강제한 경우도 있었는데, HTML5에서는 이전 버전의 규칙을 수용함과 동시에 코드 작성 시 자유도를 높이기 위해 두 가지 형태를 모두 허용합니다.  </p>
+<blockquote>
+<p>앞으로 이 책에서 단일 태그를 사용할 때는 / 기호를 생략하겠습니다. </p>
+</blockquote>
+<h2 id="_6">태그 작성 전 알아야 할 추가사항</h2>
+<p>작성 형태를 아는 것 외에도, 올바른 태그 작성을 위해서 알아두어야 할 사항들이 몇 가지 더 있습니다. </p>
+<h3 id="_7">태그는 소문자로 쓴다</h3>
+<p>HTML 태그의 이름은 모두 알파벳으로 구성되는데, HTML5에서는 태그를 작성할 때 대문자를 사용할지 소문자를 사용할지 여부가 전적으로 사용자(작성자)에게 달려 있습니다. HTML5는 코드 작성 규칙이 엄격하지 않다는 점이 드러나는 특징입니다. 그러나 태그를 작성할 때는 소문자로 작성하는 것이 널리 사용되는 관례이며, 가능하면 이를 따르는 것이 바람직합니다. </p>
+<h3 id="_8">여는 태그와 닫는 태그를 정확히 입력해야 한다</h3>
+<p>여는 태그는 콘텐츠의 시작을, 닫는 태그는 콘텐츠의 끝을 나타냅니다. 따라서 시작과 끝을 정확하게 입력하지 않으면 웹페이지의 모습이 의도한 바와 다르게 출력될 수 있습니다. 여는 태그와 닫는 태그의 짝이 맞지 않거나 일부 누락된 경우에도 웹 브라우저는 웹페이지를 렌더링할 수 있으므로 태그 작성 단계에서부터 실수를 잘 점검해가며 작업할 필요가 있습니다.</p>
+<h3 id="_9">태그의 콘텐츠로 태그를 포함시킬 수 있다</h3>
+<p>여는 태그와 닫는 태그 사이에는 태그가 표시할 콘텐츠가 포함되는데, 이때 또 하나의 새로운 태그가 콘텐츠로써 태그 안에 포함될 수도 있습니다. 예를 들면 다음과 같은 형태의 태그를 작성할 수도 있습니다. </p>
+<pre><code class="language-html">&lt;p&gt;&lt;i&gt;태그 안에 태그를 포함하다&lt;/i&gt;&lt;/p&gt;  
+</code></pre>
+<p>위와 같은 형태에서는 p태그를 상위 태그 또는 부모 태그라 하고 i태그를 하위 태그 또는 자식 태그라 합니다. </p>
+<blockquote>
+<p>p태그나 i태그의 구체적인 역할은 책의 뒷부분에서 자세히 다루겠습니다. </p>
+</blockquote>
+<h3 id="_10">들여쓰기를 적절하게 사용하는 것이 좋다</h3>
+<p>바로 위에서 살펴 본 태그의 포함 관계는 몇 번이고 겹쳐질 수 있습니다. 그런데 그러다 보면 코드의 가독성이 나빠져 코딩 작업에 불편을 초래합니다. 따라서 HTML 소스 코드를 작성할 때는 태그 사이의 포함 관계에 따라 적절한 공백을 두어 표현하는 것을 권장합니다. 아래 코드는 앞서 살펴 본 p태그가 i태그를 포함하는 코드 예에 적절한 들여쓰기를 추가하여 표현한 예입니다. </p>
+<pre><code class="language-html">&lt;p&gt;
+  &lt;i&gt;태그 안에 태그를 포함하다&lt;/i&gt;
+&lt;/p&gt;  
+</code></pre>
+<p>위 코드처럼 하위 태그의 앞에 적절한 공백, 즉 들여쓰기를 추가하면 태그의 포함 관계가 명확해져 코드의 가독성이 향상됩니다. 들여쓰기는 주로 키보드의 Tab 키를 눌러 추가하곤 합니다. </p>
+<blockquote>
+<p>비주얼 스튜디오 코드에서는 HTML 태그에 자동으로 들여쓰기를 추가해주는 기능이 포함되어 있어 무척 편리합니다. </p>
+</blockquote>
+</div>
+
+<div class="muted text-right" style="font-size: 0.9em;margin:10px 0;">
+    
+    마지막 편집일시 : 2022년 2월 8일 10:34 오전
+    
+</div>
+
+<!-- google adsense -->
+<!-- PC -->
+
+    
+        <div style="margin:30px 0;">
+            
+            <!-- 위키독스 수익 광고 1/10 -->
+<div class="clearfix">
+    <div class="pull-left" style="margin-right:30px">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:336px;height:280px"
+             data-ad-client="ca-pub-9470517771012578"
+             data-ad-channel="2536368866"
+             data-ad-slot="3437110462"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    <div class="pull-left">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:336px;height:280px"
+             data-ad-client="ca-pub-9470517771012578"
+             data-ad-channel="2536368866"
+             data-ad-slot="3437110462"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</div>
+        </div>
+    
+
+<!-- Mobile -->
+
+
+<!-- google adsense -->
+
+<!--
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.10&appId=189410671132641";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="clearfix">
+    <div class="fb-like" data-href="" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+    <div style="margin-top:2px; margin-right:5px;" class="pull-left">
+        <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+</div>
+
+-->
+
+<div class="clearfix">
+    <a href="javascript:show_comments();" class="label label-info">댓글 0</a>
+    <a href="#myModal" data-toggle="modal" title="피드백을 남겨주세요" class="label label-info">피드백</a>
+</div>
+
+<div class="user_comments" style="display:none">
+
+    <div class="comments" id="page_all_comments">
+        
+
+
+
+
+
+
+    </div>
+
+    
+    <a href="/loginForm" class="text-info" style="font-size:12px">※ 댓글 작성은 로그인이 필요합니다.</a>
+    <a href="#myModal" data-toggle="modal" style="font-size:12px">(또는 피드백을 이용해 주세요.)</a>
+    
+</div>
+
+<div class="page-prev-next">
+    
+<div class="clearfix">
+    <div class="pull-left">
+        <ul>
+            
+                <li><strong>이전글</strong> : <a href="javascript:page(160361)">02장 HTML 시작하기</a></li>
+            
+            
+                <li><strong>다음글</strong> : <a href="javascript:page(160880)">02-2 HTML 기본 문법 : 속성과 주석</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+
+
+
+<a href="#top" class="label label-default back-to-top">
+    <span class="glyphicon glyphicon-arrow-up"></span>
+    TOP
+</a>
+
+
+<script>
+var is_mobile = "False";
+$(document).ready(function () {
+    if (is_mobile == "True") {
+        if($(window).width() >= 768) {
+            // show toc
+            localStorage.toc = "show";
+            $('#toc_on').prop('checked', true);
+            $(".toc-checker").removeClass("hide");
+            $(".toc-checker").show();
+
+        }else {
+            // hide toc
+            localStorage.toc = "hide";
+            $('#toc_off').prop('checked', true);
+            $(".toc-checker").hide();
+        }
+        $(".mobile-toc").click(function() {
+            $('#toc_on').prop('checked', true);
+            $(".toc-checker").removeClass("hide");
+            $(".toc-checker").show();
+        });
+    }
+});    
+</script>
+
+    </div>
+
+</div>
+
+<div style="display:none" class="prev_next_indicator">
+    
+    <a class="prev_icon" href="javascript:page(160361)" role="button">
+        <span class="glyphicon glyphicon-chevron-left" style="font-size:2em;"></span>
+    </a>
+
+
+    <a class="next_icon" href="javascript:page(160880)" role="button">
+        <span class="glyphicon glyphicon-chevron-right" style="font-size:2em;"></span>
+    </a>
+
+
+</div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 id="myModalLabel" class="modal-title">이 페이지에 대한 피드백을 남겨주세요</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form" role="form">
+                    <input type="hidden" name="page_id" id="page_id" value="160445" />
+                    <div class="form-group">
+                        <label class="control-label" for="email">답장받을 이메일 주소</label>
+                        <div class="">
+                            <input class="form-control" type="text" id="email" placeholder="Email" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="feedback">하고 싶은 말</label>
+                        <div class="controls">
+                            <textarea class="form-control" id="feedback" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <p style="font-size:12px;">※ 피드백은 저자에게 e-메일로 전달됩니다.</p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" id="feedback_btn">전송하기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="reportModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 id="reportModalLabel" class="modal-title">댓글을 신고합니다.</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form" role="form">
+                    <input type="hidden" name="comment_id" id="comment_id" />
+                    해당 댓글을 신고하시겠습니까? 댓글 신고는 다음과 같은 경우에 사용해주세요:
+                    <ol>
+                        <li>스팸 또는 광고성 내용이 포함된 경우</li>
+                        <li>욕설, 비방, 개인정보 유출 등 부적절한 내용이 포함된 경우</li>
+                        <li>저작권을 침해하는 내용이 포함된 경우</li>
+                    </ol>
+                    <div class="form-group">
+                        <label class="control-label" for="report">신고 사유를 입력해 주세요.</label>
+                        <div class="controls">
+                            <textarea class="form-control" id="report" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <p style="font-size:12px;">※ 신고하신 내용은 관리자에게 전달되며, 확인 후 적절한 조치가 이루어집니다. 신고는 익명으로 처리되며, 신고자의 정보는 공개되지 않습니다.</p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" id="report_btn">전송하기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+
+<script>
+$(document).ready(function () {
+    $('pre code').each(function(i, e) {
+        hljs.highlightElement(e);
+        $(e).html($(e).html()
+            .replace(/\[\[MARK\]\]/g,'<mark class="add">')
+            .replace(/\[\[\/MARK\]\]/g, '</mark>')
+            .replace(/\[\[SMARK\]\]/g,'<mark class="del"><strike>')
+            .replace(/\[\[\/SMARK\]\]/g, '</strike></mark>')
+            .replace(/\[\[\/.*SMARK.*\]\]/g, '</strike></mark>')
+            .replace(/\[\[.*SMARK.*\]\]/g,'<mark class="del"><strike>')
+            .replace(/\[\[\/.*MARK.*\]\]/g, '</mark>')
+            .replace(/\[\[.*MARK.*\]\]/g,'<mark class="add">')
+        );
+    });
+
+    $("pre code").addClass("md-csc-wrap");
+    $(".hljs").prepend("<button class='md-csc-button btn btn-xs btn-default'><span class='copymsg'>Copy</span></button>");
+
+    $(".md-csc-button").click(function(){
+        let text = $(this).parent().text();
+        text = text.substring(4); // "Copy 문자열 이후부터.."
+        const textArea = document.createElement('textarea');
+        textArea.textContent = text;
+        document.body.append(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        textArea.remove();
+
+        $(this).find(".copymsg").html("Copied!");
+        setTimeout(() => {
+            $(this).find(".copymsg").html("Copy");
+        }, 2000);
+    });
+});
+</script>
+
+</body>
+</html>
